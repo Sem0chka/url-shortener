@@ -1,4 +1,4 @@
-package logger
+package mwLogger
 
 import (
 	"log/slog"
@@ -10,7 +10,7 @@ import (
 
 func New(log *slog.Logger) func(next http.Handler) http.Handler {
 	return func(next http.Handler) http.Handler {
-		log := log.With(
+		log = log.With(
 			slog.String("component", "middleware/logger"),
 		)
 
